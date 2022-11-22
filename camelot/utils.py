@@ -371,7 +371,7 @@ def text_in_bbox(bbox, text):
         for bb in rest.copy():
             if ba == bb:
                 continue
-            if bbox_intersect(ba, bb):
+            if bbox_intersect(ba, bb) and bbox_area(ba):
                 # if the intersection is larger than 80% of ba's size, we keep the longest
                 if (bbox_intersection_area(ba, bb) / bbox_area(ba)) > 0.8:
                     if bbox_longer(bb, ba):
